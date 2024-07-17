@@ -1,7 +1,7 @@
 # resources/claim_resource.py
 from flask import jsonify, request
 from flask_restful import Resource
-from models.placeholder import policy_holder_collection 
+from models.user import user_collection 
 from models.claim import claim_collection 
 from models.policy import policies_collection
 
@@ -11,14 +11,10 @@ class ClaimResource(Resource):
             data = request.json
             policy_name = data.get('policy_name')
             amount = data.get('amount')
-
-            # Retrieve the policyholder by name
-            policyholder = policy_holder_collection.find_one({'name': name})
+            policyholder = user_collection.find_one({'name': name})
 
             if not policyholder:
                 return {"message": "Customer not found"}, 404
-
-            # Check if the policyholder has the specified policy
             policies = policyholder.get('policies', [])
 
             policy = None
@@ -32,7 +28,6 @@ class ClaimResource(Resource):
 
             sum_assured = policy['sum_assured']
 
-            # Calculate the total amount claimed so far for this policy
             total_claimed = 0
             claims = claim_collection.find({'policyholder_id': policyholder['_id'], 'policy_name': policy_name})
             for claim in claims:
@@ -49,7 +44,7 @@ class ClaimResource(Resource):
             new_claim = {
                 "policyholder_id": policyholder['_id'],
                 "policy_name": policy_name,
-                "amount": float(amount),  # Ensure amount is a float
+                "amount": float(amount),
                 "status": status
             }
 

@@ -4,14 +4,15 @@ from config.database import db
 claim_schema = {
     "$jsonSchema": {
         "bsonType": "object",
-        "required": ["policyholder_id", "policy_name", "amount", "status"],
+        "required": ["policyholder_id", "policy_id","amount", "status"],
         "properties": {
             "policyholder_id": {"bsonType": "objectId"},
-            "policy_name": {"bsonType": "string"},
+            "policy_id": {"bsonType": "objectId"},
             "amount": {"bsonType": "double"},
             "status": {
                 "bsonType": "string",
-                "enum": ["pending", "approved", "rejected"]
+                "enum": ["pending", "approved", "rejected"],
+                "default": "pending"
             }
         }
     }

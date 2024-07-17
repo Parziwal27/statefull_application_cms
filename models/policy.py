@@ -173,9 +173,6 @@ try:
             for policy in category_data['policies']:
                 policy['category'] = category_data['category']
             policies_collection.insert_many(category_data['policies'])
-
-    print("MongoDB collections are ready.")
-
 except Exception as e:
     print(f"An unexpected error occurred during MongoDB setup: {e}")
     exit()
