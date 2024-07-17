@@ -20,7 +20,7 @@ api.add_resource(PolicyResource, '/api/policy')
 api.add_resource(PlaceholderResource, '/api/policyholder', '/api/policyholder/<string:name>')
 api.add_resource(ClaimResource, '/api/claim/<string:name>')
 api.add_resource(DeletePolicyResource, '/api/delete_policy')
-@app.route('/')
+@app.route('/'  )
 def index():
     return "Welcome to the Insurance Policy Management System API"
 

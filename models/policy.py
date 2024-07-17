@@ -76,7 +76,7 @@ policy_data = [
         "policies": [
             {
                 "name": "Comprehensive Car Insurance",
-                "sum_assured": 500000.0,  # Use float to match bsonType 'double'
+                "sum_assured": 500000.0,
                 "premium_plans": [
                     {"duration": "1 year", "premium": 8000.0},
                     {"duration": "2 years", "premium": 15000.0},
@@ -85,7 +85,7 @@ policy_data = [
             },
             {
                 "name": "Third Party Car Insurance",
-                "sum_assured": 200000.0,  # Use float to match bsonType 'double'
+                "sum_assured": 200000.0, 
                 "premium_plans": [
                     {"duration": "1 year", "premium": 4000.0},
                     {"duration": "2 years", "premium": 7500.0},
