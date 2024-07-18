@@ -51,7 +51,7 @@ policy_data = [
                 ]
             },
             {
-                "name": "Term Life Insurance-Elite",
+                "name": "Term Life Insurance-Enhanced",
                 "sum_assured": 2000000.0,
                 "premium_plans": [
                     {"duration": "1 year", "premium": 15000.0},
@@ -60,7 +60,7 @@ policy_data = [
                 ]
             },
             {
-                "name": "Term Life Insurance-Enhanced",
+                "name": "Term Life Insurance-Elite",
                 "sum_assured": 3000000.0,
                 "premium_plans": [
                     {"duration": "1 year", "premium": 18000.0},
