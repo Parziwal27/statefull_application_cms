@@ -6,7 +6,7 @@ class DeletePolicyResource(Resource):
     def delete(self):
         try:
             data = request.json
-            name = data.get('Username')
+            name = data.get('Usename')
             policy_name = data.get('policy_id')
 
             if not name or not policy_name:

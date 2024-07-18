@@ -111,7 +111,7 @@ class PlaceholderResource(Resource):
 
     def delete(self, name):
         try:
-            result = user_collection.delete_one({'name': name})
+            result = user_collection.delete_one({'Username': name})
 
             if result.deleted_count == 0:
                 return make_response(jsonify({"message": "Policyholder not found"}), 404)
