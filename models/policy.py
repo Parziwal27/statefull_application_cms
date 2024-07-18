@@ -33,16 +33,16 @@ policy_data = [
         "category": "Life",
         "policies": [
             {
-                "name": "Term Life Insurance",
-                "sum_assured": 1000000.0,  # Use float to match bsonType 'double'
+                "name": "Term Life Insurance-Essential",
+                "sum_assured": 1000000.0,  
                 "premium_plans": [
-                    {"duration": "1 year", "premium": 10000.0},  # Use float for premium
+                    {"duration": "1 year", "premium": 10000.0},  
                     {"duration": "5 years", "premium": 45000.0},
                     {"duration": "10 years", "premium": 85000.0}
                 ]
             },
             {
-                "name": "Term Life Insurance",
+                "name": "Term Life Insurance-Premium",
                 "sum_assured": 5000000.0,
                 "premium_plans": [
                     {"duration": "1 year", "premium": 25000.0},
@@ -51,7 +51,7 @@ policy_data = [
                 ]
             },
             {
-                "name": "Term Life Insurance",
+                "name": "Term Life Insurance-Elite",
                 "sum_assured": 2000000.0,
                 "premium_plans": [
                     {"duration": "1 year", "premium": 15000.0},
@@ -60,7 +60,7 @@ policy_data = [
                 ]
             },
             {
-                "name": "Term Life Insurance",
+                "name": "Term Life Insurance-Enhanced",
                 "sum_assured": 3000000.0,
                 "premium_plans": [
                     {"duration": "1 year", "premium": 18000.0},

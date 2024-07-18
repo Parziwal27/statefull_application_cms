@@ -98,7 +98,7 @@ class PlaceholderResource(Resource):
             if not policy_exists:
                 existing_policy_holder['policies'].append(updated_policy)
 
-            # Update policies in the database
+
             user_collection.update_one(
                 {'Username': name},
                 {'$set': {'policies': existing_policy_holder['policies']}}
