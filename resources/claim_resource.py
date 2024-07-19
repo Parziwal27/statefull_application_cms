@@ -1,7 +1,7 @@
 from flask import jsonify, request, make_response
 from models.claim import claim_collection
 from models.user import user_collection
-from bson import ObjectId
+from bson.objectid  import ObjectId, InvalidId
 from flask_restful import Resource
 class ClaimResource(Resource):
     def get(self,name=None):
@@ -101,6 +101,8 @@ class RejectClaimResource(Resource):
                 {'$set': {'status': 'rejected'}}
             )
             return {'msg': 'Claim rejected successfully'}, 200
-        except:
+        except InvalidId:
+            return {'msg': 'Invalid claim ID'}, 400
+        except Exception as e:
             print(f"Error occurred: {e}")
-            return {'msg': 'Failed to rejected claim'}, 500
+            return {'msg': 'Failed to reject claim'}, 500
