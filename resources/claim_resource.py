@@ -102,4 +102,5 @@ class RejectClaimResource(Resource):
             )
             return {'msg': 'Claim rejected successfully'}, 200
         except:
-            return {'msg': 'Failed to confirm claim'}, 500
+            print(f"Error occurred: {e}")
+            return {'msg': 'Failed to rejected claim'}, 500
