@@ -6,13 +6,12 @@ claim_schema = {
         "bsonType": "object",
         "required": ["policyholder_id", "policy_id","amount", "status"],
         "properties": {
-            "policyholder_id": {"bsonType": "objectId"},
-            "policy_id": {"bsonType": "objectId"},
+            "policyholder_id": {"bsonType": "string"},
+            "policy_id": {"bsonType": "string"},
             "amount": {"bsonType": "double"},
             "status": {
                 "bsonType": "string",
-                "enum": ["pending", "approved", "rejected"],
-                "default": "pending"
+                "enum": ["pending", "approved", "rejected"]
             }
         }
     }

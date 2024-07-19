@@ -3,7 +3,7 @@ from flask import Flask
 from flask_restful import Api
 from resources.policy_resource import PolicyResource
 from resources.placeholder_resource import PlaceholderResource
-# from resources.claim_resource import ClaimResource
+from resources.claim_resource import ClaimResource, ConfirmClaimResource, RejectClaimResource
 from resources.delete_policy_resource import DeletePolicyResource
 from prometheus_flask_exporter import PrometheusMetrics
 
@@ -18,7 +18,9 @@ def metrics():
 # Register resources
 api.add_resource(PolicyResource, '/api/policy') 
 api.add_resource(PlaceholderResource, '/api/policyholder', '/api/policyholder/<string:name>')
-# api.add_resource(ClaimResource, '/api/claim/<string:name>')
+api.add_resource(ClaimResource, '/api/claim/<string:name>')
+api.add_resource(ConfirmClaimResource, '/api/confirmclaim/<string:claim_id>')
+api.add_resource(RejectClaimResource, '/api/rejectclaim/<string:claim_id>')
 api.add_resource(DeletePolicyResource, '/api/delete_policy')
 @app.route('/'  )
 def index():
