@@ -18,7 +18,7 @@ def metrics():
 # Register resources
 api.add_resource(PolicyResource, '/api/policy') 
 api.add_resource(PlaceholderResource, '/api/policyholder', '/api/policyholder/<string:name>')
-api.add_resource(ClaimResource, '/api/claim/<string:name>')
+api.add_resource(ClaimResource, '/api/claim/<string:name>','/api/claim')
 api.add_resource(ConfirmClaimResource, '/api/confirmclaim/<string:claim_id>')
 api.add_resource(RejectClaimResource, '/api/rejectclaim/<string:claim_id>')
 api.add_resource(DeletePolicyResource, '/api/delete_policy')
