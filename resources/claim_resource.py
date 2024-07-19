@@ -13,7 +13,7 @@ class ClaimResource(Resource):
                     return make_response(jsonify({"msg": "Policyholder not found"}), 404)
                 return make_response(jsonify(policy_holder), 200)
             else:
-                policy_holders = list(user_collection.find({}, {'_id': 0}))
+                policy_holders = list(claim_collection.find({}, {'_id': 0}))
                 return make_response(jsonify(policy_holders), 200)
         except Exception as e:
             return make_response(jsonify({'error': str(e)}), 500)
