@@ -2,7 +2,7 @@ from flask import jsonify, request, make_response
 from models.claim import claim_collection
 from models.user import user_collection
 from bson import ObjectId
-from flask_restx import Resource
+from flask_restful import Resource
 class ClaimResource(Resource):
     def get(self,name=None):
         try:
