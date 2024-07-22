@@ -3,18 +3,21 @@ from models.claim import claim_collection
 from models.user import user_collection
 from bson.objectid  import ObjectId, InvalidId
 from flask_restful import Resource
+from bson import json_util
+import json
 class ClaimResource(Resource):
     def get(self,name=None):
         try:
             if name:
-                cursor = claim_collection.find({'policyholder_id': name}, {'_id': 0})
-                policy_holder = list(cursor)
-                if not policy_holder:
-                    return make_response(jsonify({"msg": "Policyholder not found"}), 404)
-                return make_response(jsonify(policy_holder), 200)
+                cursor = claim_collection.find({'policyholder_id': name})
             else:
-                policy_holders = list(claim_collection.find({}, {'_id': 0}))
-                return make_response(jsonify(policy_holders), 200)
+                cursor = claim_collection.find()
+            claims = json.loads(json_util.dumps(list(cursor)))
+            
+            if name and not claims:
+                return make_response(jsonify({"msg": "Policyholder not found"}), 404)
+            
+            return make_response(jsonify(claims), 200)
         except Exception as e:
             return make_response(jsonify({'error': str(e)}), 500)
     def post(self,name):
@@ -75,6 +78,7 @@ class ConfirmClaimResource(Resource):
                 {'_id': ObjectId(claim_id)},
                 {'$set': {'status': 'approved'}}
             )
+            print("status set")
             user_collection.update_one(
                 {'_id': ObjectId(user['_id']), 'policies.policy_id': claim['policy_id']},
                 {
